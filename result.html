@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Results • Online Test Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <div class="logo">OT</div>
+        <span>Online Test Portal</span>
+      </a>
+      <nav class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </nav>
+      <select class="nav-select" onchange="if(this.value) window.location.href=this.value">
+        <option value="index.html">Home</option>
+        <option value="index.html#about">About</option>
+        <option value="login.html">Login</option>
+        <option value="register.html">Register</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container" style="max-width: 720px;">
+      <div class="card">
+        <div class="card-body center">
+          <div style="text-align:center; max-width: 520px;">
+            <h2 style="margin:0 0 .5rem">Your Result</h2>
+            <p class="text-muted mb-4">Here's how you did</p>
+
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
+              <div class="card"><div class="card-body">
+                <h3 class="card-title">Score</h3>
+                <p id="score" style="font-size:2rem; font-weight:700; margin:0">0</p>
+              </div></div>
+              <div class="card"><div class="card-body">
+                <h3 class="card-title">Total Questions</h3>
+                <p id="total" style="font-size:1.5rem; font-weight:700; margin:0">0</p>
+              </div></div>
+              <div class="card"><div class="card-body">
+                <h3 class="card-title">Correct</h3>
+                <p id="correct" style="font-size:1.5rem; font-weight:700; margin:0">0</p>
+              </div></div>
+              <div class="card"><div class="card-body">
+                <h3 class="card-title">Wrong</h3>
+                <p id="wrong" style="font-size:1.5rem; font-weight:700; margin:0">0</p>
+              </div></div>
+            </div>
+
+            <div class="mt-4">
+              <a class="btn btn-primary" href="dashboard.html">Back to Dashboard</a>
+              <a class="btn btn-outline" href="instructions.html">Retake Test</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem('otp_result')||'null');
+    if(data){
+      document.getElementById('score').textContent = data.score + ' / ' + data.total;
+      document.getElementById('total').textContent = data.total;
+      document.getElementById('correct').textContent = data.correct;
+      document.getElementById('wrong').textContent = data.wrong;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register • Online Test Portal</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="/index.html">
+        <div class="logo-badge">OT</div>
+        <span>Online Test Portal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="#" onclick="alert('A modern, responsive portal to practice tests.');return false;">About</a>
+        <a href="/login.html">Login</a>
+        <a href="/register.html">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:56px 0">
+    <section class="card padded" style="max-width:520px;margin:0 auto">
+      <h2 style="margin:0 0 8px">Create your account</h2>
+      <p class="label" style="margin:0 0 16px">Join to start taking tests</p>
+      <form class="grid" onsubmit="event.preventDefault(); window.location.href='/dashboard.html'">
+        <div class="grid">
+          <label class="label">Name</label>
+          <input class="input" placeholder="Your name" required />
+        </div>
+        <div class="grid">
+          <label class="label">Email</label>
+          <input type="email" class="input" placeholder="you@example.com" required />
+        </div>
+        <div class="grid">
+          <label class="label">Password</label>
+          <input type="password" class="input" placeholder="••••••••" required />
+        </div>
+        <div class="grid">
+          <label class="label">Confirm Password</label>
+          <input type="password" class="input" placeholder="••••••••" required />
+        </div>
+        <button class="btn" type="submit">Register</button>
+      </form>
+      <p class="label" style="margin-top:12px">Already have an account? <a href="/login.html" style="color:var(--primary)">Login</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Online Test Portal</div>
+  </footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Test • Online Test Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <div class="logo">OT</div>
+        <span>Online Test Portal</span>
+      </a>
+      <nav class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </nav>
+      <select class="nav-select" onchange="if(this.value) window.location.href=this.value">
+        <option value="index.html">Home</option>
+        <option value="index.html#about">About</option>
+        <option value="login.html">Login</option>
+        <option value="register.html">Register</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container" style="max-width: 820px;">
+      <div class="card">
+        <div class="card-body">
+          <div class="progress mb-3"><div id="bar"></div></div>
+          <h2 id="q-title" style="margin:0 0 .75rem">Question</h2>
+          <div id="options" class="grid" style="grid-template-columns: 1fr;">
+            <!-- options here -->
+          </div>
+          <div class="mt-4" style="display:flex; justify-content:space-between; align-items:center; gap:.75rem;">
+            <span class="text-muted" id="q-count">1/5</span>
+            <button class="btn btn-primary" id="nextBtn">Next Question</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const quiz = [
+      { q: 'What does HTML stand for?', a: ['HyperText Markup Language','HighText Machine Language','Hyperloop Machine Language','HyperTool Markup Level'], c: 0 },
+      { q: 'Which CSS property changes text color?', a: ['font-style','color','text-decoration','background'], c: 1 },
+      { q: 'Inside which HTML element do we put the JavaScript?', a: ['<javascript>','<script>','<js>','<code>'], c: 1 },
+      { q: 'Which is not a JavaScript data type?', a: ['Number','String','Float','Boolean'], c: 2 },
+      { q: 'CSS stands for?', a: ['Cascading Style Sheets','Computer Styled Sections','Crazy Solid Shapes','Colorful Style Scripts'], c: 0 },
+    ];
+
+    let idx = 0; let score = 0; let selected = null;
+    const qTitle = document.getElementById('q-title');
+    const optionsWrap = document.getElementById('options');
+    const nextBtn = document.getElementById('nextBtn');
+    const qCount = document.getElementById('q-count');
+    const bar = document.getElementById('bar');
+
+    function render(){
+      const item = quiz[idx];
+      qTitle.textContent = item.q;
+      qCount.textContent = (idx+1) + '/' + quiz.length;
+      bar.style.width = ((idx)/quiz.length*100)+'%';
+      selected = null;
+      optionsWrap.innerHTML = '';
+      item.a.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-outline';
+        btn.style.textAlign = 'left';
+        btn.style.width = '100%';
+        btn.textContent = opt;
+        btn.onclick = () => {
+          selected = i;
+          Array.from(optionsWrap.children).forEach(c=>c.classList.remove('chosen'));
+          btn.classList.add('chosen');
+        };
+        optionsWrap.appendChild(btn);
+      });
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if(selected === null){
+        alert('Please select an option');
+        return;
+      }
+      if(selected === quiz[idx].c) score++;
+      idx++;
+      if(idx < quiz.length){
+        render();
+      } else {
+        bar.style.width = '100%';
+        localStorage.setItem('otp_result', JSON.stringify({
+          score, total: quiz.length, correct: score, wrong: quiz.length - score, date: Date.now()
+        }));
+        window.location.href = 'result.html';
+      }
+    });
+
+    render();
+  </script>
+
+  <style>
+    .chosen { background: rgba(37,99,235,.08); border-color: rgba(37,99,235,.45) !important; }
+  </style>
+</body>
+</html>

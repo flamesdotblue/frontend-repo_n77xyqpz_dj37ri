@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard • Online Test Portal</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="/index.html">
+        <div class="logo-badge">OT</div>
+        <span>Online Test Portal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="#" onclick="alert('A modern, responsive portal to practice tests.');return false;">About</a>
+        <a href="/login.html">Login</a>
+        <a href="/register.html">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:40px 0">
+    <div class="layout">
+      <aside class="card padded sidebar">
+        <h3 style="margin-top:0">Menu</h3>
+        <div class="grid">
+          <a class="btn" href="/dashboard.html">Dashboard</a>
+          <a class="btn ghost" href="/instructions.html">Take Test</a>
+          <a class="btn ghost" href="#" onclick="alert('Results history demo.');return false;">Results</a>
+          <a class="btn ghost" href="/index.html">Logout</a>
+        </div>
+      </aside>
+      <section class="main">
+        <div class="grid">
+          <div class="card padded">
+            <h2 style="margin-top:0">Welcome, User</h2>
+            <p class="label">Email: you@example.com</p>
+            <div class="kpi" style="margin-top:16px">
+              <div class="tile"><strong>3</strong><div class="label">Tests Completed</div></div>
+              <div class="tile"><strong>87%</strong><div class="label">Average Score</div></div>
+              <div class="tile"><strong>2</strong><div class="label">Active Quizzes</div></div>
+            </div>
+          </div>
+          <div class="card padded">
+            <div class="row">
+              <h3 style="margin:0">Recent Tests</h3>
+              <a class="btn ghost" href="/instructions.html">Start New Test</a>
+            </div>
+            <ul class="list" style="margin-top:12px">
+              <li>JavaScript Basics — 85%</li>
+              <li>HTML & CSS — 92%</li>
+              <li>General Aptitude — 81%</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Online Test Portal</div>
+  </footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>

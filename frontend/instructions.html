@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instructions • Online Test Portal</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="/index.html">
+        <div class="logo-badge">OT</div>
+        <span>Online Test Portal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="#" onclick="alert('A modern, responsive portal to practice tests.');return false;">About</a>
+        <a href="/login.html">Login</a>
+        <a href="/register.html">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:40px 0">
+    <section class="card padded" style="max-width:760px;margin:0 auto">
+      <h2 style="margin-top:0">Test Instructions</h2>
+      <div class="instructions">
+        <p class="label">Please read carefully before starting:</p>
+        <ul class="list">
+          <li>You will see one question at a time.</li>
+          <li>Select the best answer from the options.</li>
+          <li>Use Next to proceed; Finish submits your test.</li>
+          <li>Your score will be shown at the end.</li>
+        </ul>
+        <div>
+          <a class="btn" href="/test.html">Start Test</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Online Test Portal</div>
+  </footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>
