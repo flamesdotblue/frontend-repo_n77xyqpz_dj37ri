@@ -1,18 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flames App</title>
-    <link rel="icon" type="image/x-icon" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-sans/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-mono/style.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Online Test Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <div class="logo">OT</div>
+        <span>Online Test Portal</span>
+      </a>
+      <nav class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </nav>
+      <select class="nav-select" onchange="if(this.value) window.location.href=this.value">
+        <option value="index.html">Home</option>
+        <option value="#about">About</option>
+        <option value="login.html">Login</option>
+        <option value="register.html">Register</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1>Online Test Portal</h1>
+          <p>Take timed quizzes, track results, and improve your performance. Clean, fast and mobile-friendly testing experience.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="instructions.html">Start Test</a>
+            <a class="btn btn-outline" href="login.html">Login</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Why choose us?</h3>
+            <ul class="text-muted" style="margin:0; padding-left: 1.1rem; line-height: 1.9;">
+              <li>Modern responsive UI</li>
+              <li>Clear instructions and progress tracking</li>
+              <li>Instant results & insights</li>
+              <li>Works great on mobile</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+        <div class="card"><div class="card-body">
+          <h3 class="card-title">Clean design</h3>
+          <p class="text-muted">Blue and white theme with subtle depth and smooth hover effects throughout.</p>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <h3 class="card-title">Focused testing</h3>
+          <p class="text-muted">One question at a time with a clear progress bar to keep you on track.</p>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <h3 class="card-title">Actionable results</h3>
+          <p class="text-muted">See your score instantly with a breakdown of correct and wrong answers.</p>
+        </div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Online Test Portal</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear()
+  </script>
+</body>
 </html>

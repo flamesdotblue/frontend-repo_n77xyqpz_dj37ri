@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register • Online Test Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <div class="logo">OT</div>
+        <span>Online Test Portal</span>
+      </a>
+      <nav class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </nav>
+      <select class="nav-select" onchange="if(this.value) window.location.href=this.value">
+        <option value="index.html">Home</option>
+        <option value="index.html#about">About</option>
+        <option value="login.html">Login</option>
+        <option value="register.html" selected>Register</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container" style="max-width: 560px;">
+      <div class="card">
+        <div class="card-body">
+          <h2 style="margin:0 0 .25rem">Create your account</h2>
+          <p class="text-muted mb-4">Join and start testing in minutes</p>
+
+          <form class="form" onsubmit="event.preventDefault(); window.location.href='dashboard.html'">
+            <div>
+              <label class="label" for="name">Name</label>
+              <input id="name" class="input" type="text" placeholder="Jane Doe" required />
+            </div>
+            <div>
+              <label class="label" for="email">Email</label>
+              <input id="email" class="input" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: .9rem;">
+              <div>
+                <label class="label" for="password">Password</label>
+                <input id="password" class="input" type="password" placeholder="Create a password" required />
+              </div>
+              <div>
+                <label class="label" for="confirm">Confirm Password</label>
+                <input id="confirm" class="input" type="password" placeholder="Re-enter password" required />
+              </div>
+            </div>
+            <button class="btn btn-primary mt-2" type="submit" style="width:100%">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

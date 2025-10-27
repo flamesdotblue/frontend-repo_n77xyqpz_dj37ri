@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instructions • Online Test Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <div class="logo">OT</div>
+        <span>Online Test Portal</span>
+      </a>
+      <nav class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </nav>
+      <select class="nav-select" onchange="if(this.value) window.location.href=this.value">
+        <option value="index.html">Home</option>
+        <option value="index.html#about">About</option>
+        <option value="login.html">Login</option>
+        <option value="register.html">Register</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container" style="max-width: 820px;">
+      <div class="card">
+        <div class="card-body">
+          <h2 style="margin:0 0 .25rem">Test Instructions</h2>
+          <p class="text-muted">Please read carefully before starting</p>
+          <ul style="line-height:1.9; padding-left:1.2rem; margin:1rem 0 0;">
+            <li>You will be presented one question at a time.</li>
+            <li>There are 4 options for each question. Select one.</li>
+            <li>Your progress will be displayed at the top.</li>
+            <li>Click Next to move to the next question. No going back.</li>
+            <li>Your score will be shown instantly at the end.</li>
+          </ul>
+          <div class="mt-4">
+            <a class="btn btn-primary" href="test.html">Start Test</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
