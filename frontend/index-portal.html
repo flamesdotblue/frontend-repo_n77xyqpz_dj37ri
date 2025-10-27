@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Test Portal</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="/index-portal.html">
+        <div class="logo-badge">OT</div>
+        <span>Online Test Portal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/index-portal.html">Home</a>
+        <a href="#" onclick="alert('A modern, responsive portal to practice tests.');return false;">About</a>
+        <a href="/login.html">Login</a>
+        <a href="/register.html">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="badge">Modern • Fast • Responsive</span>
+        <h1>Online Test Portal</h1>
+        <p>Practice, take quizzes, and track your progress — all in a clean, distraction‑free interface.</p>
+        <div class="row" style="gap:10px">
+          <a class="btn" href="/instructions.html">Start Test</a>
+          <a class="btn ghost" href="/login.html">Login</a>
+        </div>
+      </div>
+      <div class="card padded">
+        <h3 style="margin-top:0">Why choose us?</h3>
+        <ul class="list" style="margin-top:8px">
+          <li>Clean, focused experience</li>
+          <li>Instant feedback and results</li>
+          <li>Works beautifully on mobile and desktop</li>
+        </ul>
+        <div class="row" style="margin-top:14px">
+          <a class="btn ghost" href="/register.html">Create Account</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Online Test Portal</div>
+  </footer>
+
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>

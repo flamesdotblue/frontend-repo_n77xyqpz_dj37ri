@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Result • Online Test Portal</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="/index.html">
+        <div class="logo-badge">OT</div>
+        <span>Online Test Portal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="#" onclick="alert('A modern, responsive portal to practice tests.');return false;">About</a>
+        <a href="/login.html">Login</a>
+        <a href="/register.html">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:40px 0">
+    <section class="card padded" style="max-width:760px;margin:0 auto">
+      <h2 style="margin-top:0">Your Result</h2>
+      <p class="label">Great job! Here's how you did.</p>
+      <div class="result-grid" style="margin:16px 0">
+        <div class="card padded" style="text-align:center">
+          <div class="label">Score</div>
+          <div id="score" style="font-size:28px;font-weight:700;color:var(--primary)">0%</div>
+        </div>
+        <div class="card padded" style="text-align:center">
+          <div class="label">Correct</div>
+          <div id="correct" style="font-size:24px;font-weight:700">0</div>
+        </div>
+        <div class="card padded" style="text-align:center">
+          <div class="label">Wrong</div>
+          <div id="wrong" style="font-size:24px;font-weight:700">0</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="label">Total Questions: <strong id="total">0</strong></div>
+        <div>
+          <a class="btn ghost" href="/dashboard.html">Back to Dashboard</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Online Test Portal</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear()
+    const params=new URLSearchParams(location.search)
+    document.getElementById('score').textContent=(params.get('score')||0)+'%'
+    document.getElementById('correct').textContent=params.get('correct')||0
+    document.getElementById('wrong').textContent=params.get('wrong')||0
+    document.getElementById('total').textContent=params.get('total')||0
+  </script>
+</body>
+</html>
